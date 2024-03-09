@@ -40,15 +40,10 @@ function App() {
         }}
       >
         <DataContext.Provider value={data}>
-          <Routes>
-            <Route exact path={"/"}>
               <SearchBar />
-
-              {renderGallery()}
-            </Route>
-            <Route path="/album/:id">
-              <AlbumView />
-            </Route>
+          <Routes>
+            <Route exact path={"/"} element={renderGallery()} />
+            <Route path="/album/:id" element={<AlbumView />} />
             <Route path="/artist/:id" element={<ArtistView />} />
           </Routes>
         </DataContext.Provider>
